@@ -44,7 +44,7 @@ class Node{
 
     }
 
-    void traversal(Node *root)
+    void traversal(Node *root)   //single line traversal
     {
         queue<Node*> q;
         q.push(root);
@@ -71,6 +71,43 @@ class Node{
 
     }
 
+void levelordertraversal(Node *root){
+
+    queue<Node*> q;
+    q.push(root);
+    q.push(NULL);
+
+
+    while(!q.empty())
+    {   
+        Node *temp = q.front();
+        
+        q.pop();
+
+        if(temp == NULL)
+        {
+            cout<<endl;
+
+            if(!q.empty())
+            {
+                q.push(NULL);
+            }
+        }
+
+        else{
+            cout<< temp -> data << endl;
+            if(temp -> left)
+            {
+                q.push(temp -> left);
+            }
+            if(temp -> right)
+            {
+                q.push(temp -> right);
+            }
+        }
+    }
+
+}
 
 
 
@@ -88,11 +125,13 @@ root = buildtree(root);
 
 // traversal
 cout << "the values are " << endl;
-traversal(root);
+// traversal(root);  
+
+levelordertraversal(root);
 
 
 
-//5 7 8 -1 -1 9 -1 -1 10 11 12 -1 -1 13 -1 -1 14 -1 -1 
+//3 5 6 7 -1 -1 8 -1 -1 9 11 -1 -1 12 -1 -1 19 17 -1 -1 18 -1 -1 
 
 
 
