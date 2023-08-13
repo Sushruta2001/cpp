@@ -44,6 +44,33 @@ class Node{
 
     }
 
+    void traversal(Node *root)
+    {
+        queue<Node*> q;
+        q.push(root);
+
+        while(!q.empty())
+        {
+            Node *temp = q.front();
+            cout << temp -> data << " ";
+            q.pop();
+
+
+            if(temp -> left)
+            {
+                q.push(temp -> left);
+            }
+
+            if(temp -> right)
+            {
+                q.push(temp -> right);
+            }
+        }
+
+
+
+    }
+
 
 
 
@@ -56,12 +83,16 @@ int main()
 
 Node *root = NULL;
 
-
+// tree creation
 root = buildtree(root);
 
+// traversal
+cout << "the values are " << endl;
+traversal(root);
 
 
-//code goes here
+
+//5 7 8 -1 -1 9 -1 -1 10 11 12 -1 -1 13 -1 -1 14 -1 -1 
 
 
 
